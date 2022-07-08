@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background: rgb(241, 241, 241);
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.brain-img {
+    width: 130px;
+}
+
+.title {
+    color: #333;
+    margin-top: -15px;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 2em;
+}
+
+.nickname {
+    outline: none;
+    padding: 15px;
+    border: 2px solid rgb(94, 94, 94);
+    border-radius: 5px;
+    color: #333;;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    margin-top: 1rem;
+}
+
+.nickname::placeholder {
+    color: #AAA;
+}
+
+.play {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+    margin-top: 0.5rem;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    background: #F9867D;
+    color: rgb(255, 255, 255);;
+    cursor: pointer;
+}
+
+.play:disabled {
+    background: #AAA;
+    color: #EEE;
+    cursor: auto;
+}
+
+footer {
+    display: flex;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.copyright {
+    color: #333;
+}
