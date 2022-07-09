@@ -1,4 +1,6 @@
 const grid = document.querySelector(".grid");
+const h1Player = document.querySelector(".player");
+const timer = document.querySelector(".timer");
 
 const ninjas = [
     "sasuke",
@@ -16,12 +18,60 @@ const ninjas = [
 let firstCard = "";
 let secondCard = "";
 
-function checkEndGame () {
-    const disabledCards = document.querySelectorAll(".disabled-card");
+function loadGame() {
 
-    if(disabledCards.length === 20) {
-        alert("Você ganhou!");
+    const duplicateNinja = [...ninjas, ...ninjas];
+
+    const shuffleArrayNinja = duplicateNinja.sort(() => Math.random() - 0.5);
+
+    shuffleArrayNinja.forEach((ninja) => {
+
+        const card = createCard(ninja);
+        grid.appendChild(card);
+
+    });
+}
+
+function createElement(tag, className) {
+    const element = document.createElement(tag);
+    element.className = className;
+    return element;
+}
+
+function createCard(ninja) {
+    const card = createElement("div", "card",);
+    const front = createElement("div", "face front");
+    const back = createElement("div", "face back");
+
+    front.style.backgroundImage = `url(/assets/img/${ninja}.jpg)`;
+
+    card.appendChild(front);
+    card.appendChild(back);
+
+    card.addEventListener("click", revealCard);
+    card.setAttribute("data-ninja", ninja);
+
+    return card;
+}
+
+function revealCard(event) {
+    const element = event.target.parentNode;
+
+    if (element.classList.contains("reveal-card")) {
+        return 
     }
+
+    if (firstCard === "") {
+        element.classList.add("reveal-card");
+        firstCard = element;
+    } else if (secondCard === "") {
+        element.classList.add("reveal-card");
+        secondCard = element;
+    }
+
+    checkCards();
+
+    setTimeout(checkEndGame, 550);
 }
 
 function checkCards() {
@@ -49,59 +99,25 @@ function checkCards() {
     }
 }
 
-function revealCard(event) {
-    const element = event.target.parentNode;
+function checkEndGame () {
+    const disabledCards = document.querySelectorAll(".disabled-card");
 
-    if (element.classList.contains("reveal-card")) {
-        return
+    if(disabledCards.length === 20) {
+        clearInterval(this.timerLoop);
+        alert(`FIM DE JOGO! O SEU TEMPO FOI DE: ${timer.innerHTML} SEGUNDOS.`);
     }
-
-    if (firstCard === "") {
-        element.classList.add("reveal-card");
-        firstCard = element;
-    } else if (secondCard === "") {
-        element.classList.add("reveal-card");
-        secondCard = element;
-    }
-
-    checkCards();
-    checkEndGame ();
 }
 
-function createElement(tag, className) {
-    const element = document.createElement(tag);
-    element.className = className;
-    return element;
+function startTimer() {
+    this.timerLoop = setInterval(() => {
+        currentTime = Number(timer.innerHTML);
+        timer.innerHTML = currentTime + 1;
+    }, 1000)
 }
 
-function createCard(ninja) {
-    const card = createElement("div", "card",);
-    const front = createElement("div", "face front");
-    const back = createElement("div", "face back");
-
-    front.style.backgroundImage = `url(/assets/img/${ninja}.jpg)`;
-
-    card.appendChild(front);
-    card.appendChild(back);
-
-    card.addEventListener("click", revealCard);
-    card.setAttribute("data-ninja", ninja);
-
-    return card;
+window.onload = () => {
+    h1Player.innerHTML = localStorage.getItem("player");;
+    startTimer();
+    loadGame();
 }
 
-function loadGame() {
-
-    const duplicateNinja = [...ninjas, ...ninjas];
-
-    const shuffleArrayNinja = duplicateNinja.sort(() => Math.random() - 0.5);
-
-    shuffleArrayNinja.forEach((ninja) => {
-
-        const card = createCard(ninja);
-        grid.appendChild(card);
-
-    });
-}
-
-loadGame();

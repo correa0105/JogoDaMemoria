@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 body {
     display: flex;
     align-items: center;
@@ -16,6 +19,39 @@ body::after {
     z-index: -1;
 }
 
+main {  
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 800px;
+    padding: 1.3rem;
+    font-family: 'Press Start 2P', cursive;
+    -webkit-text-stroke: 1px #000;
+    margin-bottom: 1.5rem;
+    background: rgba(139, 139, 139, 0.671);
+    border-radius: 1rem;
+}
+
+.player {
+    font-size: 1.8rem;
+    color: #FF5A00;
+}
+
+header span {
+    font-size: 1.5rem;
+}
+
+.timer {
+    font-size: 1.8rem;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -30,6 +66,7 @@ body::after {
     position: relative;
     transition: all 400ms ease;
     transform-style: preserve-3d;
+    cursor: pointer;
 }
 
 .face {
