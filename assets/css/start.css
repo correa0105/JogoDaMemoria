@@ -3,39 +3,44 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
     min-height: 100vh;
+    max-height: 100vh;
     background: rgb(241, 241, 241);
 }
 
-.form-login {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+main {
+    width: 400px;
+    padding: 1rem;
 }
 
 .header-login {
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 }
 
 .brain-img {
-    width: 130px;
+    width: 30%;
 }
 
 .title {
     color: #333;
-    margin-top: -15px;
+    margin-top: -8px;
     font-family: 'Bungee Shade', cursive;
-    font-size: 2em;
+    font-size: 1.8em;
+}
+
+.login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .nickname {
+    width: 100%;
     outline: none;
     padding: 15px;
     border: 2px solid rgb(94, 94, 94);
@@ -51,16 +56,16 @@ body {
 }
 
 .play {
+    width: 100%;
     font-family: 'Press Start 2P', cursive;
     font-size: 1em;
-    margin-top: 0.5rem;
     padding: 15px;
-    width: 100%;
     border-radius: 5px;
     border: none;
     background: #F9867D;
     color: rgb(255, 255, 255);;
     cursor: pointer;
+    margin-top: 0.5rem;
 }
 
 .play:disabled {
@@ -75,11 +80,11 @@ body {
     opacity: 60%;
 }
 
-
 footer {
     display: flex;
+    flex-direction: column;
     position: absolute;
-    bottom: 1rem;
+    bottom: 5px;
 }
 
 .copyright {
@@ -87,4 +92,5 @@ footer {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bolder;
     -webkit-text-stroke: 1px #333;
+    text-align: center;
 }

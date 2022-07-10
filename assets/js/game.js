@@ -1,6 +1,9 @@
 const grid = document.querySelector(".grid");
 const h1Player = document.querySelector(".player");
 const timer = document.querySelector(".timer");
+const restartDisplay = document.querySelector(".reset");
+const restartButton = document.querySelector(".restartButton");
+const scoreText = document.querySelector(".score");
 
 const ninjas = [
     "sasuke",
@@ -43,7 +46,7 @@ function createCard(ninja) {
     const front = createElement("div", "face front");
     const back = createElement("div", "face back");
 
-    front.style.backgroundImage = `url(/assets/img/${ninja}.jpg)`;
+    front.style.backgroundImage = `url(./assets/img/${ninja}.jpg)`;
 
     card.appendChild(front);
     card.appendChild(back);
@@ -58,7 +61,7 @@ function revealCard(event) {
     const element = event.target.parentNode;
 
     if (element.classList.contains("reveal-card")) {
-        return 
+        return
     }
 
     if (firstCard === "") {
@@ -99,13 +102,27 @@ function checkCards() {
     }
 }
 
-function checkEndGame () {
+function checkEndGame() {
     const disabledCards = document.querySelectorAll(".disabled-card");
 
-    if(disabledCards.length === 20) {
+    if (disabledCards.length === 20) {
         clearInterval(this.timerLoop);
-        alert(`FIM DE JOGO! O SEU TEMPO FOI DE: ${timer.innerHTML} SEGUNDOS.`);
+        restartDisplay.style.display = "flex";
+        scoreText.innerHTML = `SEU TEMPO FOI DE ${timer.innerHTML} SEGUNDOS!`
+        restartButton.addEventListener("click", restart);
     }
+}
+
+function restart() {
+    firstCard = "";
+    secondCard = "";
+
+    grid.innerHTML = "";
+    timer.innerHTML = "";
+    restartDisplay.style.display = "none";
+
+    loadGame();
+    startTimer();
 }
 
 function startTimer() {
@@ -120,4 +137,3 @@ window.onload = () => {
     startTimer();
     loadGame();
 }
-

@@ -1,0 +1,24 @@
+@media screen and (min-width: 0px) {
+    main {
+        width: 345px;
+    }
+    .title {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    main {
+        width: 375px;
+        
+    }
+    .title {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    main {
+        width: 400px;
+    }
+}

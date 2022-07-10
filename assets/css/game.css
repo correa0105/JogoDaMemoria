@@ -3,13 +3,16 @@
 
 body {
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
 body::after {
     content: "";
-    background: url(/assets/img/background.png);
+    background: url(../img/background.png);
+    background-size: cover;
+    height: 100vh;
     opacity: 55%;
     top: 0;
     left: 0;
@@ -19,18 +22,16 @@ body::after {
     z-index: -1;
 }
 
-main {  
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin: 0 auto;
+main {
+    width: 600px;
+    padding: 1rem;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 800px;
+    width: 100%;
     padding: 1.3rem;
     font-family: 'Press Start 2P', cursive;
     -webkit-text-stroke: 1px #000;
@@ -40,24 +41,23 @@ header {
 }
 
 .player {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #FF5A00;
 }
 
 header span {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .timer {
-    font-size: 1.8rem;
+    font-size: 1rem;
 }
 
 .grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 15px;
-    width: 800px;
-    margin: 0 auto;
+    gap: 0.5em;
+    width: 100%;
 }
 
 .card {
@@ -77,17 +77,11 @@ header span {
     border: 1.5px solid orangered;
     background-size: cover;
     background-position: center;
-    transition: all 600ms ease;
-}
-
-.front {
-    transform: rotateY(180deg);
+    transition: all 1000ms ease;
 }
 
 .back {
-    background-image: url(/assets/img/back.png);
-    background-size: 110%;
-    background-position: center;
+    background-image: url(../img/back.png);
     backface-visibility: hidden;
 }
 
@@ -97,4 +91,44 @@ header span {
 
 .disabled-card {
     filter: saturate(0);
+}
+
+.reset {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    background: black;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.score {
+    font-size: 0.6rem;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.reset button {
+    font-size: 1.8rem;
+    font-family: 'Press Start 2P', cursive;
+    padding: 0.7rem 2rem;
+    background: orangered;
+    border-radius: 6rem;
+    z-index: 98;
+    color: #FFF;
+    -webkit-text-stroke: 3px #000;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.end-logo {
+    width: 10rem;
+    opacity: 85%;
 }
