@@ -6,6 +6,9 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/correa0105/JogoDaMemoria?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/correa0105/JogoDaMemoria?style=for-the-badge)
 
+<img src="./assets/img/exemplo1.JPG" alt="Exemplo do Projeto">
+<img src="./assets/img/exemplo2.JPG" alt="Exemplo do Projeto">
+
 # ☕ Descrição do Projeto
 
 Projeto realizado com intuito de fixar conhecimentos em JavaScript, utilizando varias ferramentas de FrontEnd.
